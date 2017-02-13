@@ -1,66 +1,181 @@
 <!DOCTYPE html>
 <html>
+    
     <head>
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <script type="text/javascript" src="cordova.js"></script>
-
-        <script type="text/javascript" src="app.js"></script>
-                   </script>
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <title>Ohmstorm</title>
+            <script type="text/javascript" src="cordova.js"></script>
+            <script type="text/javascript">
+                
+                var introscreen, choosestrategyscreen, strategyscreen,
+                    organizescreen, mindmapscreen, outlinescreen, sharescreen;
+            // Setup Lifecycle Events
+            function appPause() {
+                //alert("Pause"); // This alert makes the app not work, don't alert here
+                console.log("pause");
+            }
+            
+            function appResume() {
+                alert("Resume");
+                console.log("resume");
+            }
+            
+            function needIdeaPressed() {
+                alert("idea pressed");
+                
+                introscreen.style.display = "none";
+                choosestrategyscreen.style.display = "block";
+                strategyscreen.style.display = "none";
+                organizescreen.style.display = "none";
+                mindmapscreen.style.display = "none";
+                outlinescreen.style.display = "none";
+                sharescreen.style.display = "none";
+            }
+            
+            function needOrganizePressed() {
+                alert("organize pressed");
+                
+                introscreen.style.display = "none";
+                choosestrategyscreen.style.display = "none";
+                strategyscreen.style.display = "none";
+                organizescreen.style.display = "block";
+                mindmapscreen.style.display = "none";
+                outlinescreen.style.display = "none";
+                sharescreen.style.display = "none";
+            }
+            
+            function strategyPressed() {
+                alert("strategy pressed");
+                
+                introscreen.style.display = "none";
+                choosestrategyscreen.style.display = "none";
+                strategyscreen.style.display = "block";
+                organizescreen.style.display = "none";
+                mindmapscreen.style.display = "none";
+                outlinescreen.style.display = "none";
+                sharescreen.style.display = "none";
+            }
+            
+            function mindmapPressed() {
+                alert("mindmap pressed");
+                
+                introscreen.style.display = "none";
+                choosestrategyscreen.style.display = "none";
+                strategyscreen.style.display = "none";
+                organizescreen.style.display = "none";
+                mindmapscreen.style.display = "block";
+                outlinescreen.style.display = "none";
+                sharescreen.style.display = "none";
+            }
+            
+            function outlinePressed() {
+                alert("outline pressed");
+                
+                introscreen.style.display = "none";
+                choosestrategyscreen.style.display = "none";
+                strategyscreen.style.display = "none";
+                organizescreen.style.display = "none";
+                mindmapscreen.style.display = "none";
+                outlinescreen.style.display = "block";
+                sharescreen.style.display = "none";
+            }
+            
+            function evernotePressed() {
+                alert("evernote pressed");
+                
+            }
+            
+            function emailPressed() {
+                alert("email pressed");
+            }
+            
+            function ready() {
+                alert("hello");
+                document.addEventListener('resume', appResume);
+                document.addEventListener('pause', appPause);
+                
+                document.getElementById("needidea").addEventListener('click', needIdeaPressed);
+                document.getElementById("needorganize").addEventListener('click', needOrganizePressed);
+                document.getElementById("oblique").addEventListener('click', strategyPressed);
+                document.getElementById("koan").addEventListener('click', strategyPressed);
+                document.getElementById("aphorism").addEventListener('click', strategyPressed);
+                document.getElementById("freewrite").addEventListener('click', strategyPressed);
+                document.getElementById("mindmap").addEventListener('click', mindmapPressed);
+                document.getElementById("outline").addEventListener('click', outlinePressed);
+                document.getElementById("evernote").addEventListener('click', evernotePressed);
+                document.getElementById("email").addEventListener('click', emailPressed);
+                
+                introscreen = document.getElementById("introscreen");
+                choosestrategyscreen = document.getElementById("choosestrategyscreen");
+                strategyscreen = document.getElementById("strategyscreen");
+                organizescreen = document.getElementById("organizescreen");
+                mindmapscreen = document.getElementById("mindmapscreen");
+                outlinescreen = document.getElementById("outlinescreen");
+                sharescreen = document.getElementById("sharescreen");
+            }
+            
+            function loaded() {
+                // Cordova is ready for native integration/plugins/cordova specific
+                document.addEventListener('deviceready', ready);
+            }
+            
+            window.addEventListener('load', loaded);
+                </script>
+            <link rel="stylesheet" type="text/css" href="css/index.css">
+                <title>Ohmstorm</title>
     </head>
+    
     <body>
         <div id="content">
-        <div id="introscreen">
-            <div id="introtext">
-                <p>Hi</p>
-                <p>How can I help?</p>
+            <div id="introscreen">
+                <div id="introtext">
+                    <p>Hi</p>
+                    <p>How can I help?</p>
+                </div>
+                <div class="buttontemplate">
+                    <button type="button" id="needidea">I need an idea</button>
+                    <button type="button" id="needorganize">I need to organize</button>
+                </div>
             </div>
-            <div class="buttontemplate">
-                <button type="button" id="needidea">I need an idea</button>
-                <button type="button" id="needorganize">I need to organize</button>
+            <div id="choosestrategyscreen">
+                <div id="strattext">
+                    <p>Choose a strategy</p>
+                </div>
+                <div class="buttontemplate">
+                    <button type="button" id="oblique">Oblique</button>
+                    <button type="button" id="koan">Koan</button>
+                    <button type="button" id="aphorism">Aphorism</button>
+                    <button type="button" id="freewrite">Freewrite</button>
+                </div>
             </div>
-        </div>
-        <div id="choosestrategyscreen">
-            <div id="strattext">
-                <p>Choose a strategy</p>
-            </div>
-            <div class="buttontemplate">
-                <button type="button" id="oblique">Oblique</button>
-                <button type="button" id="koan">Koan</button>
-                <button type="button" id="aphorism">Aphorism</button>
-                <button type="button" id="freewrite">Freewrite</button>
-            </div>
-        </div>
-        <div id="strategyscreen">
+            <div id="strategyscreen">
                 <p>Lorem ipsum. Javascript file here</p>
-        </div>
-        <div id="organizescreen">
-            <div id="strattext">
-                <p>How would you like</p>
-                <p>to organize your ideas?</p>
             </div>
-            <div class="buttontemplate">
-                <button type="button" id="mindmap">Mind Map</button>
-                <button type="button" id="outline">Outline</button>
+            <div id="organizescreen">
+                <div id="strattext">
+                    <p>How would you like</p>
+                    <p>to organize your ideas?</p>
+                </div>
+                <div class="buttontemplate">
+                    <button type="button" id="mindmap">Mind Map</button>
+                    <button type="button" id="outline">Outline</button>
+                </div>
             </div>
-        </div>
-        <div id="mindmapscreen">
-            <p>Lorem ipsum. Javascript file here</p>
-        </div>
-        <div id="outlinescreen">
-            <p>Lorem ipsum. Javascript file here</p>
-        </div>
-        <div id="sharescreen">
-            <div id="strattext">
-                <p>Share</p>
+            <div id="mindmapscreen">
+                <p>Lorem ipsum. Javascript file here</p>
             </div>
-            <div class="buttontemplate">
-                <button type="button">Evernote</button>
-                <button type="button">Email</button>
+            <div id="outlinescreen">
+                <p>Lorem ipsum. Javascript file here</p>
             </div>
-
-        </div>
+            <div id="sharescreen">
+                <div id="strattext">
+                    <p>Share</p>
+                </div>
+                <div class="buttontemplate">
+                    <button type="button" id="evernote">Evernote</button>
+                    <button type="button" id="email">Email</button>
+                </div>
+            </div>
         </div>
     </body>
+    
 </html>

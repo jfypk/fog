@@ -9,10 +9,15 @@ function appResume() {
     console.log("resume");
 }
 
+function needIdeaPressed() {
+    alert("idea pressed");
+}
+
 function ready() {
-    alert("Hello There");
+    alert("hello");
     document.addEventListener('resume', appResume);
     document.addEventListener('pause', appPause);
+    document.addEventListener('needidea',needIdeaPressed);
 }
 
 function loaded() {

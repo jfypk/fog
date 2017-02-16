@@ -118,31 +118,4 @@ h1 {
     text-align:center;
 }
 
-#introscreen {
-    display: block;
-    margin: 0 auto;
-}
 
-#choosestrategyscreen {
-    display:none;
-}
-
-#strategyscreen {
-    display:none;
-}
-
-#organizescreen {
-    display:none;
-}
-
-#mindmapscreen {
-    display:none;
-}
-
-#outlinescreen {
-    display:none;
-}
-
-#sharescreen {
-    display:none;
-}

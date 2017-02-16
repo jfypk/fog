@@ -6,8 +6,8 @@
             <script type="text/javascript" src="cordova.js"></script>
             <script type="text/javascript">
                 
-                var introscreen, choosestrategyscreen, strategyscreen,
-                    organizescreen, mindmapscreen, outlinescreen, sharescreen;
+                var splashscreen, menuscreen, generatescreen, inspirescreen,
+                    unblockscreen, organizescreen, optionsmenu, aboutscreen;
             // Setup Lifecycle Events
             function appPause() {
                 //alert("Pause"); // This alert makes the app not work, don't alert here
@@ -19,98 +19,38 @@
                 console.log("resume");
             }
             
-            function needIdeaPressed() {
-                alert("idea pressed");
-                
-                introscreen.style.display = "none";
-                choosestrategyscreen.style.display = "block";
-                strategyscreen.style.display = "none";
-                organizescreen.style.display = "none";
-                mindmapscreen.style.display = "none";
-                outlinescreen.style.display = "none";
-                sharescreen.style.display = "none";
-            }
-            
-            function needOrganizePressed() {
-                alert("organize pressed");
-                
-                introscreen.style.display = "none";
-                choosestrategyscreen.style.display = "none";
-                strategyscreen.style.display = "none";
-                organizescreen.style.display = "block";
-                mindmapscreen.style.display = "none";
-                outlinescreen.style.display = "none";
-                sharescreen.style.display = "none";
-            }
-            
-            function strategyPressed() {
-                alert("strategy pressed");
-                
-                introscreen.style.display = "none";
-                choosestrategyscreen.style.display = "none";
-                strategyscreen.style.display = "block";
-                organizescreen.style.display = "none";
-                mindmapscreen.style.display = "none";
-                outlinescreen.style.display = "none";
-                sharescreen.style.display = "none";
-            }
-            
-            function mindmapPressed() {
-                alert("mindmap pressed");
-                
-                introscreen.style.display = "none";
-                choosestrategyscreen.style.display = "none";
-                strategyscreen.style.display = "none";
-                organizescreen.style.display = "none";
-                mindmapscreen.style.display = "block";
-                outlinescreen.style.display = "none";
-                sharescreen.style.display = "none";
-            }
-            
-            function outlinePressed() {
-                alert("outline pressed");
-                
-                introscreen.style.display = "none";
-                choosestrategyscreen.style.display = "none";
-                strategyscreen.style.display = "none";
-                organizescreen.style.display = "none";
-                mindmapscreen.style.display = "none";
-                outlinescreen.style.display = "block";
-                sharescreen.style.display = "none";
-            }
-            
-            function evernotePressed() {
-                alert("evernote pressed");
-                
-            }
-            
-            function emailPressed() {
-                alert("email pressed");
-            }
-            
             function ready() {
                 alert("hello");
                 document.addEventListener('resume', appResume);
                 document.addEventListener('pause', appPause);
                 
-                document.getElementById("needidea").addEventListener('click', needIdeaPressed);
-                document.getElementById("needorganize").addEventListener('click', needOrganizePressed);
-                document.getElementById("oblique").addEventListener('click', strategyPressed);
-                document.getElementById("koan").addEventListener('click', strategyPressed);
-                document.getElementById("aphorism").addEventListener('click', strategyPressed);
-                document.getElementById("freewrite").addEventListener('click', strategyPressed);
-                document.getElementById("mindmap").addEventListener('click', mindmapPressed);
-                document.getElementById("outline").addEventListener('click', outlinePressed);
-                document.getElementById("evernote").addEventListener('click', evernotePressed);
-                document.getElementById("email").addEventListener('click', emailPressed);
-                
-                introscreen = document.getElementById("introscreen");
-                choosestrategyscreen = document.getElementById("choosestrategyscreen");
-                strategyscreen = document.getElementById("strategyscreen");
+                splashscreen = document.getElementById("splashscreen");
+                menuscreen = document.getElementById("menuscreen");
+                generatescreen = document.getElementById("generatescreen");
+                inspirescreen = document.getElementById("inspirescreen");
+                unblockscreen = document.getElementById("unblockscreen");
                 organizescreen = document.getElementById("organizescreen");
-                mindmapscreen = document.getElementById("mindmapscreen");
-                outlinescreen = document.getElementById("outlinescreen");
-                sharescreen = document.getElementById("sharescreen");
+                optionsmenu = document.getElementById("optionsmenu");
+                aboutscreen = document.getElementById("aboutscreen");
+                
+                if (navigator.geolocation) {
+                    
+                    navigator.geolocation.watchPosition(successCallback, errorCallback, {});
+                    
+                    function successCallback(currentPosition) {
+                        var lat = 40.729419; //currentPosition.coords.latitude;
+                        var lon = -73.993848; //currentPosition.coords.longitude;
+                        
+                        console.log(lat + " " + lon);				
+                    }
+                    
+                    function errorCallback(e) {
+                        console.log(e);
+                    }
+                }
+                
+                var mapElem = document.getElementById('map');
+                mapElem.innerHTML = '<img src="http://maps.googleapis.com/maps/api/staticmap?markers=' + lat + ',' + long + '&zoom=20&size=300x300&sensor=false" />';
             }
             
             function loaded() {
@@ -121,60 +61,84 @@
             window.addEventListener('load', loaded);
                 </script>
             <link rel="stylesheet" type="text/css" href="css/index.css">
-                <title>Ohmstorm</title>
+                <title>Fog</title>
     </head>
     
     <body>
         <div id="content">
-            <div id="introscreen">
-                <div id="introtext">
-                    <p>Hi</p>
-                    <p>How can I help?</p>
+            <div id="splashscreen">
+                <p>fog</p>
                 </div>
+            <div id="menuscreen">
                 <div class="buttontemplate">
-                    <button type="button" id="needidea">I need an idea</button>
-                    <button type="button" id="needorganize">I need to organize</button>
+                    <button type="button" id="inspire">Inspire</button>
+                    <button type="button" id="generate">Generate</button>
+                    <button type="button" id="unblock">Unblock</button>
+                    <button type="button" id="organize">Organize</button>
                 </div>
             </div>
-            <div id="choosestrategyscreen">
-                <div id="strattext">
-                    <p>Start with your first instinct</p>
-                    <p>Then choose a strategy</p>
+            <div id="generatescreen" class="foggedbg">
+                <div id="generateinfo">
+                    <p>In this exercise, we will come up with random ideas. Start by thinking of any object. If you're stuck, shake your phone for suggestions.</p>
+                    <p>Swipe right to move forward</p>
+                    <p>Swipe left to return to the main menu</p>
+                    <p>Swipe down for more options</p>
                 </div>
-                <div class="buttontemplate">
-                    <button type="button" id="oblique">Oblique</button>
-                    <button type="button" id="koan">Koan</button>
-                    <button type="button" id="aphorism">Aphorism</button>
-                    <button type="button" id="freewrite">Freewrite</button>
-                </div>
-            </div>
-            <div id="strategyscreen">
-                <p>Lorem ipsum. Javascript file here</p>
-            </div>
-            <div id="organizescreen">
-                <div id="strattext">
-                    <p>How would you like</p>
-                    <p>to organize your ideas?</p>
-                </div>
-                <div class="buttontemplate">
-                    <button type="button" id="mindmap">Mind Map</button>
-                    <button type="button" id="outline">Outline</button>
+                <div id="generatescript">
+                    <p id="tester">JAVASCRIPT GOES HERE</p>
+                    <!--<script type="text/javascript" src="/"></script>-->
                 </div>
             </div>
-            <div id="mindmapscreen">
-                <p>Lorem ipsum. Javascript file here</p>
-            </div>
-            <div id="outlinescreen">
-                <p>Lorem ipsum. Javascript file here</p>
-            </div>
-            <div id="sharescreen">
-                <div id="strattext">
-                    <p>Share</p>
+            <div id="inspirescreen" class="foggedbg">
+                <div id="inspireinfo">
+                    <p>In this exercise, we present simple aphorisms. We hope they can serve as the beginning of an inspiration for you.</p>
+                    <p>Swipe right to move forward</p>
+                    <p>Swipe left to return to the main menu</p>
+                    <p>Swipe down for more options</p>
                 </div>
-                <div class="buttontemplate">
-                    <button type="button" id="evernote">Evernote</button>
-                    <button type="button" id="email">Email</button>
+                <div id="inspirescript">
+                    <p id="tester">JAVASCRIPT GOES HERE</p>
+                    <!--<script type="text/javascript" src="/"></script>-->
                 </div>
+            </div>
+            <div id="unblockscreen" class="foggedbg">
+                <div id="unblockinfo">
+                    <p>In this exercise, we will offer different strategies to overcome your mental block. Meditate on how you could apply your idea to the strategy in front of you.</p>
+                    <p>Swipe right to move forward</p>
+                    <p>Swipe left to return to the main menu</p>
+                    <p>Swipe down for more options</p>
+                </div>
+                <div id="unblockscript">
+                    <p id="tester">JAVASCRIPT GOES HERE</p>
+                    <!--<script type="text/javascript" src="/"></script>-->
+                </div>
+            </div>
+            <div id="organizescreen" class="foggedbg">
+                <div id="organizeinfo">
+                    <p>Tap anywhere to start typing an idea. Drag and connect ideas to begin to form a mind map.</p>
+                    <p>Pinch to zoom in/out</p>
+                    <p>Drag to pan the view </p>
+                    <p>Swipe right to move forward</p>
+                    <p>Swipe left to return to the main menu</p>
+                    <p>Swipe down for more options</p>
+                </div>
+                <div id="organizescript">
+                    <p id="tester">JAVASCRIPT GOES HERE</p>
+                    <!--<script type="text/javascript" src="/"></script>-->
+                </div>
+            </div>
+            <div id="optionsmenu">
+                <button type="button" id="submit">Submit</button>
+                <button type="button" id="share">Share</button>
+                <button type="button" id="about">About</button>
+            </div>
+            <div id="aboutscreen">
+                <h3>fog</h3>
+                <p>Some unblock strategies taken from Oblique Strategies by Brian Eno and Peter Schmidt. Copyright 2017.</p>
+                <p>Some inspire aphorisms taken from Blonote by Tablo et.al. Copyright 2016.</p>
+                <p>fog created by Jeff Park. ITP.</p>
+                <div id="map"></div>
+                
             </div>
         </div>
     </body>

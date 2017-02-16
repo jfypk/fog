@@ -30,7 +30,7 @@
     "Only one element of each kind",
     "Do nothing for as long as possible",
     "Bridges \n-build \n-burn",
-    "Water"
+    "Water",
     "You don't have to be ashamed of using your own ideas",
     "Make a sudden, destructive unpredictable action; incorporate",
     "Tidy up",
@@ -44,7 +44,7 @@
     "Fill every beat with something",
     "Discard an axiom",
     "Listen to the quiet voice",
-    "What wouldn't you do?"
+    "What wouldn't you do?",
     "Is it finished?",
     "Decorate, decorate",
     "Put in earplugs",
@@ -68,7 +68,7 @@
     "(Organic) machinery",
     "Courage!",
     "What mistakes did you make last time?",
-    "You are an engineer"
+    "You are an engineer",
     "Consider different fading systems",
     "Remove ambiguities and convert to specifics",
     "Mute and continue",
@@ -131,5 +131,6 @@
     "Only a part, not the whole",
     "From nothing to more than nothing",
     "Be less critical more often",
-    "Riff"
+    "Riff",
+    "Borrow from another field"
 }

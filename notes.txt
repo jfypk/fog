@@ -1,0 +1,3 @@
+* add shake plugin: https://github.com/leecrossley/cordova-plugin-shake
+* add about page
+    * add location to about page

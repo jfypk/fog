@@ -20,6 +20,11 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+html {
+    min-height: 100%;
+    position: relative;
+}
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -36,13 +41,22 @@ body {
         color-stop(0.51, #E4E4E4)
     );
     background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-family:'Baskerville', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
     width:100%;
+}
+
+p {
+    left: 0;
+    line-height: 200px;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
 }
 
 /* Portrait layout (default) */
@@ -116,6 +130,150 @@ h1 {
 
 #content {
     text-align:center;
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -2;
 }
 
+#splashscreen {
+    display: none;
+    background-image: url("../img/splashscreen.png");
+    background-size: cover;
+    z-index: -1;
+    height: 100%;
+    position: relative;
+}
 
+#splashscreen > p {
+    font-size: 64px;
+    color: #333b27;
+}
+
+#menuscreen {
+    display: none;
+    
+}
+
+#generatescreen {
+    display: block;
+    background-image: url("../img/otherscreen.png");
+    background-size: cover;
+    z-index: -1;
+    height: 100%;
+    position: relative;
+}
+
+#generateinfo {
+    display: none;
+    background: black;
+    opacity: 0.5;
+    z-index: 0;
+    height: 100%;
+    position: relative;
+}
+
+#generateinfo > p {
+    font-size: 16px;
+    color: #dedcde;
+    line-height: 20px;
+}
+
+#generatescript {
+    display: none;
+}
+
+#inspirescreen {
+    display: none;
+    background-image: url("../img/otherscreen.png");
+    background-size: cover;
+    z-index: -1;
+    height: 100%;
+    position: relative;
+}
+
+#inspireinfo {
+    display: none;
+    background: black;
+    opacity: 0.5;
+    z-index: 0;
+    height: 100%;
+    position: relative;
+}
+
+#inspireinfo > p {
+    font-size: 16px;
+    color: #dedcde;
+    line-height: 20px;
+}
+
+#inspirescript {
+    display: none;
+}
+
+#unblockscreen {
+    display: none;
+    background-image: url("../img/otherscreen.png");
+    background-size: cover;
+    z-index: -1;
+    height: 100%;
+    position: relative;
+}
+
+#unblockinfo {
+    display: none;
+    background: black;
+    opacity: 0.5;
+    z-index: 0;
+    height: 100%;
+    position: relative;
+}
+
+#unblockinfo > p {
+    font-size: 16px;
+    color: #dedcde;
+    line-height: 20px;
+}
+
+#unblockscript {
+    display: none;
+}
+
+#organizescreen {
+    display: none;
+}
+
+#organizeinfo {
+    display: none;
+    background: black;
+    opacity: 0.5;
+    z-index: 0;
+    height: 100%;
+    position: relative;
+}
+
+#organizeinfo > p {
+    font-size: 16px;
+    color: #dedcde;
+    line-height: 20px;
+}
+
+#organizescript {
+    display: none;
+}
+
+#optionsmenu {
+    display: none;
+}
+
+#aboutscreen {
+    display: none;
+}
+
+.buttontemplate {
+    
+}

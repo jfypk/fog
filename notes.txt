@@ -1,3 +1,25 @@
-* add shake plugin: https://github.com/leecrossley/cordova-plugin-shake
-* add about page
-    * add location to about page
+TODO:
+
+* add page change animation
+* add cards javascript action
+* program mindmap
+* add credits to about
+* create menu
+* add generate and mindmap database functionality
+* add jquery mobile functionality 
+
+
+Credits:
+- Brian Eno
+- Victor Hugo
+- Leonardo Da vinci
+- george eliot
+- Tablo
+- cicero
+- napoleon hill
+- Edward George Bulwer-Lytton
+- Lao Tzu
+- Tacitus
+- Pablo Picasso
+
+- www.aphorism4all.com

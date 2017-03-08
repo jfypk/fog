@@ -4,6 +4,7 @@
     <head>
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
             <script type="text/javascript" src="cordova.js"></script>
+            
             <script type="text/javascript">
                 
                 var splashscreen, menuscreen, generatescreen, inspirescreen,
@@ -25,7 +26,7 @@
                 document.addEventListener('pause', appPause);
                 
                 splashscreen = document.getElementById("splashscreen");
-                menuscreen = document.getElementById("menuscreen");
+                menuscreen = docuokment.getElementById("menuscreen");
                 generatescreen = document.getElementById("generatescreen");
                 inspirescreen = document.getElementById("inspirescreen");
                 unblockscreen = document.getElementById("unblockscreen");
@@ -67,7 +68,7 @@
     <body>
         <div id="content">
             <div id="splashscreen">
-                <p>fog</p>
+                <p id="titlep">fog</p>
                 </div>
             <div id="menuscreen">
                 <div class="buttontemplate">
@@ -77,50 +78,36 @@
                     <button type="button" id="organize">Organize</button>
                 </div>
             </div>
-            <div id="generatescreen" class="foggedbg">
+            <div id="generatescreen">
                 <div id="generateinfo">
-                    <p>In this exercise, we will come up with random ideas. Start by thinking of any object. If you're stuck, shake your phone for suggestions.</p>
-                    <p>Swipe right to move forward</p>
-                    <p>Swipe left to return to the main menu</p>
-                    <p>Swipe down for more options</p>
+                    <p>In this exercise, we will come up with random ideas.<br>Start by thinking of any object.<br> If you're stuck, shake your phone for suggestions.<br>Swipe right to move forward<br>Swipe left to return to the main menu<br>Swipe down for more options</p>
                 </div>
                 <div id="generatescript">
                     <p id="tester">JAVASCRIPT GOES HERE</p>
                     <!--<script type="text/javascript" src="/"></script>-->
                 </div>
             </div>
-            <div id="inspirescreen" class="foggedbg">
+            <div id="inspirescreen">
                 <div id="inspireinfo">
-                    <p>In this exercise, we present simple aphorisms. We hope they can serve as the beginning of an inspiration for you.</p>
-                    <p>Swipe right to move forward</p>
-                    <p>Swipe left to return to the main menu</p>
-                    <p>Swipe down for more options</p>
+                    <p>In this exercise, we present simple aphorisms. <br>We hope they can serve as the beginning of an inspiration for you.<br>Swipe right to move forward<br>Swipe left to return to the main menu<br>Swipe down for more options</p>
                 </div>
                 <div id="inspirescript">
                     <p id="tester">JAVASCRIPT GOES HERE</p>
                     <!--<script type="text/javascript" src="/"></script>-->
                 </div>
             </div>
-            <div id="unblockscreen" class="foggedbg">
+            <div id="unblockscreen">
                 <div id="unblockinfo">
-                    <p>In this exercise, we will offer different strategies to overcome your mental block. Meditate on how you could apply your idea to the strategy in front of you.</p>
-                    <p>Swipe right to move forward</p>
-                    <p>Swipe left to return to the main menu</p>
-                    <p>Swipe down for more options</p>
+                    <p>In this exercise, we offer different strategies to overcome mental block.<br>Meditate on how you could apply your idea to the strategy in front of you.<br>Swipe right to move forward<br>Swipe left to return to the main menu<br>Swipe down for more options</p>
                 </div>
                 <div id="unblockscript">
                     <p id="tester">JAVASCRIPT GOES HERE</p>
                     <!--<script type="text/javascript" src="/"></script>-->
                 </div>
             </div>
-            <div id="organizescreen" class="foggedbg">
+            <div id="organizescreen">
                 <div id="organizeinfo">
-                    <p>Tap anywhere to start typing an idea. Drag and connect ideas to begin to form a mind map.</p>
-                    <p>Pinch to zoom in/out</p>
-                    <p>Drag to pan the view </p>
-                    <p>Swipe right to move forward</p>
-                    <p>Swipe left to return to the main menu</p>
-                    <p>Swipe down for more options</p>
+                    <p>Tap anywhere to start typing an idea.<br>Drag and connect ideas to begin to form a mind map.<br>Pinch to zoom in/out<br>Drag to pan the view<br>Swipe right to move forward<br>Swipe left to return to the main menu<br>Swipe down for more options</p>
                 </div>
                 <div id="organizescript">
                     <p id="tester">JAVASCRIPT GOES HERE</p>

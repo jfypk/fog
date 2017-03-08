@@ -25,7 +25,7 @@
     <author email="jyp360@nyu.edu" href="http://www.jeff-park.com">
         Jeff Park
     </author>
-    <content src="app.html" />
+    <content src="mindmap.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
